@@ -10,7 +10,7 @@ import Foundation
 
 struct PostDTO: Codable {
     let id : Int
-    let userId : Int
-    let title : String
-    let body : String
+    let userId : Int?
+    let title : String?
+    let body : String?
 }

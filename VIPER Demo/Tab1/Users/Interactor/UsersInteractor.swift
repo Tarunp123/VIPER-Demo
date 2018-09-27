@@ -36,28 +36,32 @@ class UsersInteractor: UsersInteractorInputProtocol {
                     var usersMap = Dictionary<Int, User>()
                     
                     for index in 0..<posts.count{
+                        guard posts[index].userId != nil && posts[index].title != nil && posts[index].body != nil else{
+                            continue;
+                        }
                         
-                        if usersMap[posts[index].userId] == nil{
+                        if usersMap[posts[index].userId!] == nil{
                             //User doesn't exists in map
                             //Add new User
-                            usersMap[posts[index].userId] = User(id: posts[index].userId)
+                            usersMap[posts[index].userId!] = User(id: posts[index].userId!)
                         }
                         //append new message
-                        usersMap[posts[index].userId]!.messages.append(Message(title: posts[index].title, body: posts[index].body))
+                        usersMap[posts[index].userId!]!.messages.append(Message(title: posts[index].title!, body: posts[index].body!))
                     }
                     
-                    //Sort Users based on user id
-                    let sortedRecords = usersMap.sorted(by: { (record1, record2) -> Bool in
-                        return record1.key < record2.key
+                    //Sort Users based on userId
+                    let users = Array(usersMap.values).sorted(by: { (user1, user2) -> Bool in
+                        return user1.id < user2.id
                     })
                     
-                    for record in sortedRecords{
-                        print("\(record.value.id) = \(record.value.messages.count)")
+                    for user in users{
+                        print("\(user.id) = \(user.messages.count)")
+                        
                     }
                     
                 }catch{
                     //error
-                    print(error)
+                    print("ERRRRRR = \(error)")
                 }
             }
         }

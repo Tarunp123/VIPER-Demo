@@ -42,6 +42,6 @@ protocol UsersInteractorInputProtocol {
 
 
 protocol UsersInteractorOutputProtocol {
-    
+    func didFetchUsersDataFromServer(users: [User])
 }
 
