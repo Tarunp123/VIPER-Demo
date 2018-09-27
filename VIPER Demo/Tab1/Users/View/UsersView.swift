@@ -13,6 +13,7 @@ class UsersView: UIViewController {
     var presenter: UsersPresenterProtocol?
     
     private var usersTableView : UITableView!
+    private let cellId = "UserCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,6 @@ class UsersView: UIViewController {
 extension UsersView : UsersViewProtocol{
     
     func setupView(){
-        
         self.navigationItem.title = "Users"
         self.title = "Users"
         self.view.backgroundColor = UIColor.red
@@ -34,7 +34,8 @@ extension UsersView : UsersViewProtocol{
         self.usersTableView = UITableView(frame: .zero, style: .grouped)
         self.usersTableView.backgroundColor = UIColor.groupTableViewBackground
         self.usersTableView.dataSource = self
-        self.usersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UserCell")
+        self.usersTableView.delegate = self
+        self.usersTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         self.view.addSubview(self.usersTableView!)
         self.usersTableView.translatesAutoresizingMaskIntoConstraints = false
         self.usersTableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
@@ -62,16 +63,25 @@ extension UsersView : UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         if let user = self.presenter?.userAtIndex(index: indexPath.row){
             cell.textLabel?.text = "User \(user.id)"
         }else{
             cell.textLabel?.text = "User X"
         }
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
 }
 
+extension UsersView : UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.presenter?.didSelectUserAtIndex(index: indexPath.row)
+    }
+    
+}
 
 

@@ -10,6 +10,10 @@ import UIKit
 
 protocol UsersRouterProtocol {
     static func createUsersModule() -> UIViewController
+    
+    func presentMessagesScreenForUser(user: User)
+    
+
 }
 
 
@@ -19,11 +23,13 @@ protocol UsersPresenterProtocol{
     var router : UsersRouterProtocol? {get set}
     
     func viewDidLoad()
-    func showMessagesForUser(user: User)
     
     func numberOfUsers() -> Int
     
     func userAtIndex(index: Int) -> User?
+    
+    func didSelectUserAtIndex(index: Int)
+    
 }
 
 

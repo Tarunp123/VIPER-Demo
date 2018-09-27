@@ -27,19 +27,28 @@ class UsersPresenter: UsersPresenterProtocol {
     }
     
     func userAtIndex(index: Int) -> User? {
-        return index < self.users.count ? self.users[index] : nil
+        guard index < self.users.count else {
+            return nil
+        }
+        
+        return self.users[index]
     }
     
-    func showMessagesForUser(user: User) {
+    func didSelectUserAtIndex(index: Int) {
+        guard index < self.users.count else {
+            return
+        }
         
+        self.router?.presentMessagesScreenForUser(user: self.users[index])
     }
+    
     
 }
 
 
 extension UsersPresenter : UsersInteractorOutputProtocol{
+    
     func didFetchUsersDataFromServer(users: [User]) {
-//        print("didFetchUsersDataFromServer = \(users.count)")
         self.users = users
         self.view?.updateView()
     }

@@ -27,5 +27,9 @@ class UsersRouter: UsersRouterProtocol {
         return UINavigationController(rootViewController: view)
     }
     
+    func presentMessagesScreenForUser(user: User) {
+        
+    }
+    
     
 }
