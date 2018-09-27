@@ -33,8 +33,9 @@ protocol UsersViewProtocol{
 
 
 
+
 protocol UsersInteractorInputProtocol {
-    var presenter : UsersPresenterProtocol? {get set}
+    var presenter : UsersInteractorOutputProtocol? {get set}
 
     func fetchUsersDataFromServer()
     

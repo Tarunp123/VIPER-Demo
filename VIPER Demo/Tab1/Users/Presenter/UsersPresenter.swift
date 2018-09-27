@@ -30,7 +30,7 @@ class UsersPresenter: UsersPresenterProtocol {
 
 extension UsersPresenter : UsersInteractorOutputProtocol{
     func didFetchUsersDataFromServer(users: [User]) {
-        
+        print("didFetchUsersDataFromServer = \(users.count)")
     }
 }
 

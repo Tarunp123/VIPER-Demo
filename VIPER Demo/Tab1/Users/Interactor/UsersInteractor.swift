@@ -11,7 +11,7 @@ import Foundation
 
 class UsersInteractor: UsersInteractorInputProtocol {
     
-    var presenter: UsersPresenterProtocol?
+    var presenter: UsersInteractorOutputProtocol?
     
     private let postsURLString = "http://jsonplaceholder.typicode.com/posts"
     
@@ -54,14 +54,11 @@ class UsersInteractor: UsersInteractorInputProtocol {
                         return user1.id < user2.id
                     })
                     
-                    for user in users{
-                        print("\(user.id) = \(user.messages.count)")
-                        
-                    }
+                    self.presenter?.didFetchUsersDataFromServer(users: users)
                     
                 }catch{
                     //error
-                    print("ERRRRRR = \(error)")
+                    print("ERROR = \(error)")
                 }
             }
         }
