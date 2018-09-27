@@ -37,7 +37,7 @@ class MessagesView: UIViewController {
 extension MessagesView : MessagesViewProtocol{
     
     func setupView() {
-        self.navigationItem.title = "Messages"
+        self.navigationItem.title = "User \(self.presenter!.user!.id)"
         self.view.backgroundColor = UIColor.white
         
         self.messagesTableView = UITableView(frame: .zero, style: .grouped)
@@ -68,11 +68,11 @@ extension MessagesView : UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+    
         if indexPath.row == self.selectedMessageIndex{
-            return 120
+            return MessageCell.getCellHeightForMessage(message: self.presenter!.messageAtIndex(index: indexPath.row)!, withCellWidth: tableView.frame.width, inExpandedMode: true)
         }else{
-            return 60
+            return MessageCell.getCellHeightForMessage(message: self.presenter!.messageAtIndex(index: indexPath.row)!, withCellWidth: tableView.frame.width, inExpandedMode: false)
         }
     }
 
