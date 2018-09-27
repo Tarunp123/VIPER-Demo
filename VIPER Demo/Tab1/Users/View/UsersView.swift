@@ -29,14 +29,14 @@ extension UsersView : UsersViewProtocol{
     func setupView(){
         self.navigationItem.title = "Users"
         self.title = "Users"
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.white
         
         self.usersTableView = UITableView(frame: .zero, style: .grouped)
         self.usersTableView.backgroundColor = UIColor.groupTableViewBackground
         self.usersTableView.dataSource = self
         self.usersTableView.delegate = self
         self.usersTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        self.view.addSubview(self.usersTableView!)
+        self.view.addSubview(self.usersTableView)
         self.usersTableView.translatesAutoresizingMaskIntoConstraints = false
         self.usersTableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.usersTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true

@@ -7,3 +7,34 @@
 //
 
 import Foundation
+
+
+protocol MessagesRouterProtocol {
+    static func createMessagesModuleForUser(user: User) -> MessagesView
+    
+}
+
+
+protocol MessagesViewProtocol {
+    var presenter : MessagesPresenterProtocol? {get set}
+    
+    func setupView()
+    
+    func expandCellAtIndex(index: Int)
+    
+}
+
+
+protocol MessagesPresenterProtocol {
+    var view : MessagesViewProtocol? {get set}
+    var router : MessagesRouterProtocol? {get set}
+    var user : User? {get set}
+    
+    func viewDidLoad()
+    
+    func numberOfMessages() -> Int
+    
+    func messageAtIndex(index: Int) -> Message?
+    
+    func didSelectMessageAtIndex(index: Int)
+}

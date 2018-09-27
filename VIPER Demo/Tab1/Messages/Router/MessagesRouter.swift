@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+class MessagesRouter: MessagesRouterProtocol {
+    
+    static func createMessagesModuleForUser(user: User) -> MessagesView {
+        
+        let view = MessagesView()
+        let presenter = MessagesPresenter()
+        let router = MessagesRouter()
+        
+        view.presenter = presenter
+        presenter.view = view
+        presenter.router = router
+        presenter.user = user
+        
+        return view
+    }
+    
+    
+}
