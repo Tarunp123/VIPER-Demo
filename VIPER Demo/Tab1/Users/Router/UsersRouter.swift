@@ -27,7 +27,11 @@ class UsersRouter: UsersRouterProtocol {
         return UINavigationController(rootViewController: view)
     }
     
-    func presentMessagesScreenForUser(user: User) {
+    func presentMessagesScreen(from view: UsersViewProtocol, forUser user: User){
+        let messagesView = MessagesView()
+        if let usersView = view as? UIViewController{
+            usersView.navigationController?.pushViewController(messagesView, animated: true)
+        }
         
     }
     

@@ -11,6 +11,11 @@
 		C30283E2215C14F700474637 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E1215C14F700474637 /* UtilityExtensions.swift */; };
 		C30283E4215C1C5800474637 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E3215C1C5800474637 /* Message.swift */; };
 		C30283E6215C1D7700474637 /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E5215C1D7700474637 /* PostDTO.swift */; };
+		C3E2E869215CA33700C722C3 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E868215CA33700C722C3 /* MessagesViewController.swift */; };
+		C3E2E86B215CA36C00C722C3 /* MessagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */; };
+		C3E2E86D215CA37800C722C3 /* MessagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86C215CA37800C722C3 /* MessagesInteractor.swift */; };
+		C3E2E86F215CA38D00C722C3 /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86E215CA38D00C722C3 /* MessagesRouter.swift */; };
+		C3E2E871215CA3A100C722C3 /* MessagesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E870215CA3A100C722C3 /* MessagesProtocols.swift */; };
 		EEC2533F215B6D8A00B13A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC2533E215B6D8A00B13A2F /* AppDelegate.swift */; };
 		EEC25344215B6D8A00B13A2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEC25342215B6D8A00B13A2F /* Main.storyboard */; };
 		EEC25346215B6D8C00B13A2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC25345215B6D8C00B13A2F /* Assets.xcassets */; };
@@ -47,6 +52,11 @@
 		C30283E1215C14F700474637 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		C30283E3215C1C5800474637 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C30283E5215C1D7700474637 /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
+		C3E2E868215CA33700C722C3 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
+		C3E2E86C215CA37800C722C3 /* MessagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesInteractor.swift; sourceTree = "<group>"; };
+		C3E2E86E215CA38D00C722C3 /* MessagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
+		C3E2E870215CA3A100C722C3 /* MessagesProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesProtocols.swift; sourceTree = "<group>"; };
 		EEC2533B215B6D8A00B13A2F /* VIPER Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VIPER Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC2533E215B6D8A00B13A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEC25343215B6D8A00B13A2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -280,6 +290,7 @@
 		EEC25379215B6F2E00B13A2F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3E2E868215CA33700C722C3 /* MessagesViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +298,7 @@
 		EEC2537A215B6F3300B13A2F /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -294,6 +306,7 @@
 		EEC2537B215B6F4700B13A2F /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				C3E2E86C215CA37800C722C3 /* MessagesInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -301,6 +314,7 @@
 		EEC2537C215B6F7000B13A2F /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				C3E2E86E215CA38D00C722C3 /* MessagesRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -316,6 +330,7 @@
 		EEC2537E215B708000B13A2F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C3E2E870215CA3A100C722C3 /* MessagesProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -452,16 +467,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C30283E6215C1D7700474637 /* PostDTO.swift in Sources */,
+				C3E2E86F215CA38D00C722C3 /* MessagesRouter.swift in Sources */,
 				C30283E0215C12C800474637 /* HTTPRequestor.swift in Sources */,
 				EEC2538A215C0B9C00B13A2F /* UsersInteractor.swift in Sources */,
 				C30283E2215C14F700474637 /* UtilityExtensions.swift in Sources */,
+				C3E2E86B215CA36C00C722C3 /* MessagesPresenter.swift in Sources */,
 				EEC2538C215C0C2E00B13A2F /* UsersPresenter.swift in Sources */,
 				EEC25384215B769300B13A2F /* UsersView.swift in Sources */,
+				C3E2E869215CA33700C722C3 /* MessagesViewController.swift in Sources */,
+				C3E2E86D215CA37800C722C3 /* MessagesInteractor.swift in Sources */,
 				EEC25380215B719400B13A2F /* UsersListProtocols.swift in Sources */,
 				EEC25388215BDC6F00B13A2F /* User.swift in Sources */,
 				C30283E4215C1C5800474637 /* Message.swift in Sources */,
 				EEC2533F215B6D8A00B13A2F /* AppDelegate.swift in Sources */,
 				EEC25382215B762000B13A2F /* UsersRouter.swift in Sources */,
+				C3E2E871215CA3A100C722C3 /* MessagesProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

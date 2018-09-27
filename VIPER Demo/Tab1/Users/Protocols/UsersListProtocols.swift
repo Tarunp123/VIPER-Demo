@@ -11,7 +11,7 @@ import UIKit
 protocol UsersRouterProtocol {
     static func createUsersModule() -> UIViewController
     
-    func presentMessagesScreenForUser(user: User)
+    func presentMessagesScreen(from view: UsersViewProtocol, forUser user: User)
     
 
 }
