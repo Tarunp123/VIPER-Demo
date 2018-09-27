@@ -18,10 +18,7 @@ class UsersView: UIViewController {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
     }
-
-
-    
-    
+  
 }
 
 
@@ -34,7 +31,7 @@ extension UsersView : UsersViewProtocol{
         self.title = "Users"
         self.view.backgroundColor = UIColor.red
         
-        self.usersTableView = UITableView()
+        self.usersTableView = UITableView(frame: .zero, style: .grouped)
         self.usersTableView.backgroundColor = UIColor.groupTableViewBackground
         self.usersTableView.dataSource = self
         self.usersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UserCell")
@@ -48,7 +45,9 @@ extension UsersView : UsersViewProtocol{
 
     
     func updateView() {
-        
+        DispatchQueue.main.async {
+            self.usersTableView.reloadData()
+        }
     }
     
     
@@ -58,17 +57,17 @@ extension UsersView : UsersViewProtocol{
 
 extension UsersView : UITableViewDataSource{
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return self.presenter?.numberOfUsers() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath)
-        cell.textLabel?.text = "Index \(indexPath.row)"
+        if let user = self.presenter?.userAtIndex(index: indexPath.row){
+            cell.textLabel?.text = "User \(user.id)"
+        }else{
+            cell.textLabel?.text = "User X"
+        }
         return cell
     }
     

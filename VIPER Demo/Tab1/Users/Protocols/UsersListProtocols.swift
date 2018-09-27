@@ -20,6 +20,10 @@ protocol UsersPresenterProtocol{
     
     func viewDidLoad()
     func showMessagesForUser(user: User)
+    
+    func numberOfUsers() -> Int
+    
+    func userAtIndex(index: Int) -> User?
 }
 
 

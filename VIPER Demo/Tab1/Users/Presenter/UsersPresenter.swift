@@ -15,22 +15,33 @@ class UsersPresenter: UsersPresenterProtocol {
     var interactor: UsersInteractorInputProtocol?
     var router: UsersRouterProtocol?
     
+    private var users = [User]()
+    
     func viewDidLoad() {
         self.view?.setupView()
         interactor?.fetchUsersDataFromServer()
+    }
+    
+    func numberOfUsers() -> Int {
+        return self.users.count
+    }
+    
+    func userAtIndex(index: Int) -> User? {
+        return index < self.users.count ? self.users[index] : nil
     }
     
     func showMessagesForUser(user: User) {
         
     }
     
-    
 }
 
 
 extension UsersPresenter : UsersInteractorOutputProtocol{
     func didFetchUsersDataFromServer(users: [User]) {
-        print("didFetchUsersDataFromServer = \(users.count)")
+//        print("didFetchUsersDataFromServer = \(users.count)")
+        self.users = users
+        self.view?.updateView()
     }
 }
 
