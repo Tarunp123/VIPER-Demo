@@ -34,6 +34,7 @@ class MessagesView: UIViewController {
 
 }
 
+
 extension MessagesView : MessagesViewProtocol{
     
     func setupView() {
@@ -53,26 +54,56 @@ extension MessagesView : MessagesViewProtocol{
         self.messagesTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         
     }
-    
-    func expandCellAtIndex(index: Int) {
-        
-    }
-    
+
 
 }
 
 
 extension MessagesView : UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.presenter?.numberOfMessages() ?? 0
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    
+        
         if indexPath.row == self.selectedMessageIndex{
-            return MessageCell.getCellHeightForMessage(message: self.presenter!.messageAtIndex(index: indexPath.row)!, withCellWidth: tableView.frame.width, inExpandedMode: true)
+            
+            if let message = self.presenter?.messageAtIndex(index: indexPath.row){
+               
+                //checking if heights were previously calculated and stored earlier
+                if let titleHeight = message.titleHeight, let bodyHeight = message.bodyHeight{
+                    //already calculated
+                    return CGFloat(titleHeight + bodyHeight) + MessageCell.padding*3
+                }else{
+                    //need to calculate
+                    message.titleHeight = Float(UILabel.getSizeToFitText(text: message.title, font: MessageCell.titleFont, fontPointSize: MessageCell.titleFont.pointSize, maxWidth: tableView.frame.width - MessageCell.padding*2, maxHeight: nil).height)
+                    
+                    message.bodyHeight = Float(UILabel.getSizeToFitText(text: message.body, font: MessageCell.bodyFont, fontPointSize: MessageCell.bodyFont.pointSize, maxWidth: tableView.frame.width - MessageCell.padding*2, maxHeight: nil).height)
+                    
+                    return CGFloat(message.titleHeight! + message.bodyHeight!) + MessageCell.padding*3
+                }
+            }else{
+                //Could not find message
+                return 0
+            }
+            
         }else{
-            return MessageCell.getCellHeightForMessage(message: self.presenter!.messageAtIndex(index: indexPath.row)!, withCellWidth: tableView.frame.width, inExpandedMode: false)
+            
+            ////checking if heights were previously calculated and stored
+            if let titleHeight = MessageCell.titleLabelHeightInCollapsedMode, let bodyHeight = MessageCell.bodyLabelHeightInCollapsedMode{
+                return titleHeight + bodyHeight + MessageCell.padding*3
+            }
+            
+            //Need to calculate heights
+            if MessageCell.titleLabelHeightInCollapsedMode == nil{
+                MessageCell.titleLabelHeightInCollapsedMode = UILabel.heightForSingleLine(font: MessageCell.titleFont, fontPointSize: MessageCell.titleFont.pointSize)
+                
+            }
+            if MessageCell.bodyLabelHeightInCollapsedMode == nil{
+                MessageCell.bodyLabelHeightInCollapsedMode = UILabel.heightForSingleLine(font: MessageCell.bodyFont, fontPointSize: MessageCell.bodyFont.pointSize)
+            }
+            return MessageCell.titleLabelHeightInCollapsedMode! + MessageCell.bodyLabelHeightInCollapsedMode! + MessageCell.padding*3
         }
     }
 
@@ -84,6 +115,7 @@ extension MessagesView : UITableViewDataSource{
         return cell
     }
 }
+
 
 extension MessagesView : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

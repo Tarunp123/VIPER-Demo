@@ -13,6 +13,9 @@ class MessageCell: UITableViewCell {
     static let padding : CGFloat = 8.0
     static let titleFont = UIFont.preferredFont(forTextStyle: .body).withSize(UIFont.preferredFont(forTextStyle: .body).pointSize)
     static let bodyFont = UIFont.preferredFont(forTextStyle: .caption1).withSize(UIFont.preferredFont(forTextStyle: .caption1).pointSize)
+    static var titleLabelHeightInCollapsedMode : CGFloat?
+    static var bodyLabelHeightInCollapsedMode : CGFloat?
+    
     
     private var titleLabel : UILabel?
     private var bodyLabel : UILabel?
@@ -31,11 +34,16 @@ class MessageCell: UITableViewCell {
         self.titleLabel?.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -MessageCell.padding).isActive = true
         if expandedMode{
             self.titleLabel?.numberOfLines = 0
-            let requiredHeight = UILabel.getSizeToFitText(text: message.title, font: self.titleLabel!.font!, fontPointSize: self.titleLabel!.font!.pointSize, maxWidth: self.contentView.frame.width - MessageCell.padding*2, maxHeight: nil).height
-            self.titleLabel?.heightAnchor.constraint(equalToConstant: requiredHeight).isActive = true
+            if message.titleHeight == nil{
+                message.titleHeight = Float(UILabel.getSizeToFitText(text: message.title, font: self.titleLabel!.font!, fontPointSize: self.titleLabel!.font!.pointSize, maxWidth: self.contentView.frame.width - MessageCell.padding*2, maxHeight: nil).height)
+            }
+            self.titleLabel?.heightAnchor.constraint(equalToConstant: CGFloat(message.titleHeight!)).isActive = true
         }else{
             self.titleLabel?.numberOfLines = 1
-            self.titleLabel?.heightAnchor.constraint(equalToConstant: UILabel.heightForSingleLine(font: self.titleLabel!.font, fontPointSize: self.titleLabel!.font.pointSize)).isActive = true
+            if MessageCell.titleLabelHeightInCollapsedMode == nil{
+                MessageCell.titleLabelHeightInCollapsedMode = UILabel.heightForSingleLine(font: self.titleLabel!.font, fontPointSize: self.titleLabel!.font.pointSize)
+            }
+            self.titleLabel?.heightAnchor.constraint(equalToConstant: MessageCell.titleLabelHeightInCollapsedMode!).isActive = true
         }
         
         
@@ -51,11 +59,16 @@ class MessageCell: UITableViewCell {
         self.bodyLabel?.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -MessageCell.padding).isActive = true
         if expandedMode{
             self.bodyLabel?.numberOfLines = 0
-            let requiredHeight = UILabel.getSizeToFitText(text: message.body, font: self.bodyLabel!.font!, fontPointSize: self.bodyLabel!.font!.pointSize, maxWidth: self.contentView.frame.width - MessageCell.padding*2, maxHeight: nil).height
-            self.bodyLabel?.heightAnchor.constraint(equalToConstant: requiredHeight).isActive = true
+            if message.bodyHeight == nil{
+                message.bodyHeight = Float(UILabel.getSizeToFitText(text: message.body, font: self.bodyLabel!.font!, fontPointSize: self.bodyLabel!.font!.pointSize, maxWidth: self.contentView.frame.width - MessageCell.padding*2, maxHeight: nil).height)
+            }
+            self.bodyLabel?.heightAnchor.constraint(equalToConstant: CGFloat(message.bodyHeight!)).isActive = true
         }else{
             self.bodyLabel?.numberOfLines = 1
-            self.bodyLabel?.heightAnchor.constraint(equalToConstant: UILabel.heightForSingleLine(font: self.bodyLabel!.font, fontPointSize: self.bodyLabel!.font.pointSize)).isActive = true
+            if MessageCell.bodyLabelHeightInCollapsedMode == nil{
+                MessageCell.bodyLabelHeightInCollapsedMode = UILabel.heightForSingleLine(font: self.bodyLabel!.font, fontPointSize: self.bodyLabel!.font.pointSize)
+            }
+            self.bodyLabel?.heightAnchor.constraint(equalToConstant: MessageCell.bodyLabelHeightInCollapsedMode!).isActive = true
         }
         
         
@@ -75,6 +88,8 @@ class MessageCell: UITableViewCell {
         }
         
     }
+    
+    
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
