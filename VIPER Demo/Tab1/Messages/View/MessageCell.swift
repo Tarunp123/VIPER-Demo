@@ -75,23 +75,7 @@ class MessageCell: UITableViewCell {
         self.contentView.clipsToBounds = true
     }
     
-    
-    static func getCellHeightForMessage(message: Message, withCellWidth width: CGFloat, inExpandedMode expandedMode: Bool) -> CGFloat{
-        if expandedMode{
-            let titleHeight = UILabel.getSizeToFitText(text: message.title, font: MessageCell.titleFont, fontPointSize: MessageCell.titleFont.pointSize, maxWidth: width - MessageCell.padding*2, maxHeight: nil).height
-            let bodyHeight = UILabel.getSizeToFitText(text: message.body, font: MessageCell.bodyFont, fontPointSize: MessageCell.bodyFont.pointSize, maxWidth: width - MessageCell.padding*2, maxHeight: nil).height
-            return titleHeight + bodyHeight + padding*3
-        }else{
-            let titleHeight = UILabel.heightForSingleLine(font: MessageCell.titleFont, fontPointSize: MessageCell.titleFont.pointSize)
-            let bodyHeight = UILabel.heightForSingleLine(font: MessageCell.bodyFont, fontPointSize: MessageCell.bodyFont.pointSize)
-            return titleHeight + bodyHeight + padding*3
-        }
-        
-    }
-    
-    
-    
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: animated)
     }
