@@ -9,25 +9,54 @@
 import Foundation
 
 class GalleryPresenter: GalleryPresenterProtocol {
-    
-    
+
     
     var view: GalleryViewProtocol?
     var router: GalleryRouterProtocol?
+    var interactor: GalleryInteractorInputProtocol?
     
-    
+    private var photos = [PhotoDTO]()
     
     func viewDidLoad() {
         self.view?.setupView()
+        self.interactor?.fetchNextPageFromServer()
     }
     
-    func numberOfPhotos() -> Int {
-        return 0
+    func totalNoOfPhotos() -> Int {
+        return self.interactor?.totalNoOfPhotosPresentInServer() ?? 0
     }
+    
+    func numberOfPhotosToShow() -> Int {
+        return self.photos.count
+    }
+    
+    func photoAtIndex(index: Int) -> PhotoDTO? {
+        guard index < self.photos.count else{
+            return nil
+        }
+        
+        //fetch next batch if user has scrolled close to end
+        if index >= (self.photos.count - 6) && self.photos.count < (self.interactor?.totalNoOfPhotosPresentInServer() ?? 0){
+            self.interactor?.fetchNextPageFromServer()
+        }
+        
+        return self.photos[index]
+    }
+    
     
 }
 
 
 extension GalleryPresenter : GalleryInteractorOutputProtocol{
+    
+    func didFetchNextPageFromServer(photos: [PhotoDTO]) {
+        self.photos.append(contentsOf: photos)
+        self.view?.updateView()
+    }
+    
+    func didFailToFetchImagesWithError(error: Error) {
+        print(error)
+    }
+    
     
 }

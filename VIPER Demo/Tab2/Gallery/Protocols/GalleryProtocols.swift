@@ -16,17 +16,21 @@ protocol GalleryRouterProtocol {
 
 protocol GalleryViewProtocol {
     var presenter : GalleryPresenterProtocol? {get set}
+    
     func setupView()
+    func updateView()
 }
 
 protocol GalleryPresenterProtocol {
     var view : GalleryViewProtocol? {get set}
     var router : GalleryRouterProtocol? {get set}
+    var interactor : GalleryInteractorInputProtocol? {get set}
     
     func viewDidLoad()
     
-    func numberOfPhotos() -> Int
-//    func photoAtIndex(index: Int) -> PhotoDTO
+    func totalNoOfPhotos() -> Int
+    func numberOfPhotosToShow() -> Int
+    func photoAtIndex(index: Int) -> PhotoDTO?
     
     
 }
@@ -34,9 +38,15 @@ protocol GalleryPresenterProtocol {
 
 protocol GalleryInteractorInputProtocol {    
     var presenter : GalleryInteractorOutputProtocol? {get set}
-    func fetchRecentImagesFromServer()
+    
+    func totalNoOfPhotosPresentInServer() -> Int
+    func fetchNextPageFromServer()
+    
 }
 
 protocol GalleryInteractorOutputProtocol {
     
+    func didFetchNextPageFromServer(photos: [PhotoDTO])
+    
+    func didFailToFetchImagesWithError(error: Error)
 }

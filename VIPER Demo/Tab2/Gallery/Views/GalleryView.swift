@@ -53,19 +53,23 @@ extension GalleryView : GalleryViewProtocol{
     }
     
     
+    func updateView() {
+        DispatchQueue.main.async {
+            self.galleryCollectionView.reloadData()
+        }
+    }
     
 }
 
 
 extension GalleryView : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.presenter?.numberOfPhotosToShow() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: galleryCellId, for: indexPath) as! GalleryCell
-//        cell.backgroundColor = .gray
-        
+        _ =  self.presenter?.photoAtIndex(index: indexPath.row)
         return cell
     }
     

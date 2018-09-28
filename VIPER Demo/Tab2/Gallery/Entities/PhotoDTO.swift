@@ -17,8 +17,8 @@ struct PhotoDTO: Decodable {
     
     private enum CodingKeys : String, CodingKey{
         case id
-        case farmId = "farm-id"
-        case serverId = "server-id"
+        case farmId = "farm"
+        case serverId = "server"
         case secret
     }
 }

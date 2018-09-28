@@ -16,10 +16,13 @@ class GalleryRouter: GalleryRouterProtocol {
         let view = GalleryView()
         let presenter = GalleryPresenter()
         let router = GalleryRouter()
+        let interactor = GalleryInteractor()
         
         view.presenter = presenter
         presenter.view = view
         presenter.router = router
+        presenter.interactor = interactor
+        interactor.presenter = presenter
         
         return UINavigationController(rootViewController: view)
     
