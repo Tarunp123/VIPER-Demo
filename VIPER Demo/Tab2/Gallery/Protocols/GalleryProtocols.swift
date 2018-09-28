@@ -32,10 +32,11 @@ protocol GalleryPresenterProtocol {
 }
 
 
-protocol GalleryInteractorInputProtocol {
+protocol GalleryInteractorInputProtocol {    
+    var presenter : GalleryInteractorOutputProtocol? {get set}
     func fetchRecentImagesFromServer()
 }
 
 protocol GalleryInteractorOutputProtocol {
-    var presenter : GalleryPresenterProtocol? {get set}
+    
 }

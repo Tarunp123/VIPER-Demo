@@ -29,6 +29,10 @@ class GalleryCell: UICollectionViewCell {
         self.imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
     }
     
+    func setImageFromURL(urlString: String) {
+        
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

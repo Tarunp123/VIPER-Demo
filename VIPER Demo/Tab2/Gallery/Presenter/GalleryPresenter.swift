@@ -26,3 +26,8 @@ class GalleryPresenter: GalleryPresenterProtocol {
     }
     
 }
+
+
+extension GalleryPresenter : GalleryInteractorOutputProtocol{
+    
+}

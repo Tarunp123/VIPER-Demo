@@ -16,6 +16,8 @@
 		C393D618215EA87E00F4D63A /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D616215EA87E00F4D63A /* GalleryCell.swift */; };
 		C393D61A215EA88900F4D63A /* GalleryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D619215EA88900F4D63A /* GalleryRouter.swift */; };
 		C393D61D215EAAC700F4D63A /* GalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D61C215EAAC700F4D63A /* GalleryPresenter.swift */; };
+		C393D620215EB56A00F4D63A /* PhotoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D61F215EB56A00F4D63A /* PhotoDTO.swift */; };
+		C393D623215EB74900F4D63A /* GalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D622215EB74900F4D63A /* GalleryInteractor.swift */; };
 		C3D3173F215D626A000551A2 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3173E215D626A000551A2 /* MessageCell.swift */; };
 		C3E2E869215CA33700C722C3 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E868215CA33700C722C3 /* MessagesView.swift */; };
 		C3E2E86B215CA36C00C722C3 /* MessagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */; };
@@ -62,6 +64,8 @@
 		C393D616215EA87E00F4D63A /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		C393D619215EA88900F4D63A /* GalleryRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryRouter.swift; sourceTree = "<group>"; };
 		C393D61C215EAAC700F4D63A /* GalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPresenter.swift; sourceTree = "<group>"; };
+		C393D61F215EB56A00F4D63A /* PhotoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDTO.swift; sourceTree = "<group>"; };
+		C393D622215EB74900F4D63A /* GalleryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryInteractor.swift; sourceTree = "<group>"; };
 		C3D3173E215D626A000551A2 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		C3E2E868215CA33700C722C3 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
@@ -161,6 +165,22 @@
 				C393D61C215EAAC700F4D63A /* GalleryPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C393D61E215EB55100F4D63A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C393D61F215EB56A00F4D63A /* PhotoDTO.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		C393D621215EB73500F4D63A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C393D622215EB74900F4D63A /* GalleryInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		EEC25332215B6D8900B13A2F = {
@@ -269,6 +289,8 @@
 		EEC25371215B6E3100B13A2F /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				C393D621215EB73500F4D63A /* Interactor */,
+				C393D61E215EB55100F4D63A /* Entities */,
 				C393D61B215EAA5E00F4D63A /* Presenter */,
 				C393D612215EA84D00F4D63A /* Views */,
 				C393D611215EA83D00F4D63A /* Router */,
@@ -507,6 +529,7 @@
 			files = (
 				C30283E6215C1D7700474637 /* PostDTO.swift in Sources */,
 				C3D3173F215D626A000551A2 /* MessageCell.swift in Sources */,
+				C393D620215EB56A00F4D63A /* PhotoDTO.swift in Sources */,
 				C3E2E86F215CA38D00C722C3 /* MessagesRouter.swift in Sources */,
 				C30283E0215C12C800474637 /* HTTPRequestor.swift in Sources */,
 				EEC2538A215C0B9C00B13A2F /* UsersInteractor.swift in Sources */,
@@ -522,6 +545,7 @@
 				EEC25380215B719400B13A2F /* UsersListProtocols.swift in Sources */,
 				EEC25388215BDC6F00B13A2F /* User.swift in Sources */,
 				C30283E4215C1C5800474637 /* Message.swift in Sources */,
+				C393D623215EB74900F4D63A /* GalleryInteractor.swift in Sources */,
 				C393D618215EA87E00F4D63A /* GalleryCell.swift in Sources */,
 				EEC2533F215B6D8A00B13A2F /* AppDelegate.swift in Sources */,
 				EEC25382215B762000B13A2F /* UsersRouter.swift in Sources */,
