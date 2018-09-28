@@ -9,13 +9,33 @@
 import UIKit
 
 protocol GalleryRouterProtocol {
-    
     static func createGalleryModule() -> UIViewController
-    
     
 }
 
 
 protocol GalleryViewProtocol {
+    var presenter : GalleryPresenterProtocol? {get set}
     func setupView()
+}
+
+protocol GalleryPresenterProtocol {
+    var view : GalleryViewProtocol? {get set}
+    var router : GalleryRouterProtocol? {get set}
+    
+    func viewDidLoad()
+    
+    func numberOfPhotos() -> Int
+//    func photoAtIndex(index: Int) -> PhotoDTO
+    
+    
+}
+
+
+protocol GalleryInteractorInputProtocol {
+    func fetchRecentImagesFromServer()
+}
+
+protocol GalleryInteractorOutputProtocol {
+    var presenter : GalleryPresenterProtocol? {get set}
 }
