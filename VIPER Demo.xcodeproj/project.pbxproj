@@ -11,6 +11,10 @@
 		C30283E2215C14F700474637 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E1215C14F700474637 /* UtilityExtensions.swift */; };
 		C30283E4215C1C5800474637 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E3215C1C5800474637 /* Message.swift */; };
 		C30283E6215C1D7700474637 /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E5215C1D7700474637 /* PostDTO.swift */; };
+		C393D614215EA86A00F4D63A /* GalleryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D613215EA86A00F4D63A /* GalleryProtocols.swift */; };
+		C393D617215EA87E00F4D63A /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D615215EA87E00F4D63A /* GalleryView.swift */; };
+		C393D618215EA87E00F4D63A /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D616215EA87E00F4D63A /* GalleryCell.swift */; };
+		C393D61A215EA88900F4D63A /* GalleryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D619215EA88900F4D63A /* GalleryRouter.swift */; };
 		C3D3173F215D626A000551A2 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3173E215D626A000551A2 /* MessageCell.swift */; };
 		C3E2E869215CA33700C722C3 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E868215CA33700C722C3 /* MessagesView.swift */; };
 		C3E2E86B215CA36C00C722C3 /* MessagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */; };
@@ -52,6 +56,10 @@
 		C30283E1215C14F700474637 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		C30283E3215C1C5800474637 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C30283E5215C1D7700474637 /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
+		C393D613215EA86A00F4D63A /* GalleryProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryProtocols.swift; sourceTree = "<group>"; };
+		C393D615215EA87E00F4D63A /* GalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		C393D616215EA87E00F4D63A /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		C393D619215EA88900F4D63A /* GalleryRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryRouter.swift; sourceTree = "<group>"; };
 		C3D3173E215D626A000551A2 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		C3E2E868215CA33700C722C3 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
@@ -118,6 +126,38 @@
 				C30283DF215C12C800474637 /* HTTPRequestor.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C393D610215EA83000F4D63A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C393D613215EA86A00F4D63A /* GalleryProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C393D611215EA83D00F4D63A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C393D619215EA88900F4D63A /* GalleryRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		C393D612215EA84D00F4D63A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C393D616215EA87E00F4D63A /* GalleryCell.swift */,
+				C393D615215EA87E00F4D63A /* GalleryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C393D61B215EAA5E00F4D63A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		EEC25332215B6D8900B13A2F = {
@@ -226,6 +266,10 @@
 		EEC25371215B6E3100B13A2F /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				C393D61B215EAA5E00F4D63A /* Presenter */,
+				C393D612215EA84D00F4D63A /* Views */,
+				C393D611215EA83D00F4D63A /* Router */,
+				C393D610215EA83000F4D63A /* Protocols */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -463,7 +507,10 @@
 				C3E2E86F215CA38D00C722C3 /* MessagesRouter.swift in Sources */,
 				C30283E0215C12C800474637 /* HTTPRequestor.swift in Sources */,
 				EEC2538A215C0B9C00B13A2F /* UsersInteractor.swift in Sources */,
+				C393D614215EA86A00F4D63A /* GalleryProtocols.swift in Sources */,
 				C30283E2215C14F700474637 /* UtilityExtensions.swift in Sources */,
+				C393D61A215EA88900F4D63A /* GalleryRouter.swift in Sources */,
+				C393D617215EA87E00F4D63A /* GalleryView.swift in Sources */,
 				C3E2E86B215CA36C00C722C3 /* MessagesPresenter.swift in Sources */,
 				EEC2538C215C0C2E00B13A2F /* UsersPresenter.swift in Sources */,
 				EEC25384215B769300B13A2F /* UsersView.swift in Sources */,
@@ -471,6 +518,7 @@
 				EEC25380215B719400B13A2F /* UsersListProtocols.swift in Sources */,
 				EEC25388215BDC6F00B13A2F /* User.swift in Sources */,
 				C30283E4215C1C5800474637 /* Message.swift in Sources */,
+				C393D618215EA87E00F4D63A /* GalleryCell.swift in Sources */,
 				EEC2533F215B6D8A00B13A2F /* AppDelegate.swift in Sources */,
 				EEC25382215B762000B13A2F /* UsersRouter.swift in Sources */,
 				C3E2E871215CA3A100C722C3 /* MessagesProtocols.swift in Sources */,
