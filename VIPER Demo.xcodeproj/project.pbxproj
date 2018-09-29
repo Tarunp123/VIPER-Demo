@@ -24,7 +24,7 @@
 		C393D627215EC1D500F4D63A /* FlickrResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D626215EC1D500F4D63A /* FlickrResponseDTO.swift */; };
 		C393D62C215F506100F4D63A /* Moa.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D62B215F506100F4D63A /* Moa.swift */; };
 		C3D3173F215D626A000551A2 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3173E215D626A000551A2 /* MessageCell.swift */; };
-		C3DC1CD6215F77B5005FD94D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC1CD5215F77B5005FD94D /* UserService.swift */; };
+		C3DC1CD6215F77B5005FD94D /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC1CD5215F77B5005FD94D /* PostsService.swift */; };
 		C3E2E869215CA33700C722C3 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E868215CA33700C722C3 /* MessagesView.swift */; };
 		C3E2E86B215CA36C00C722C3 /* MessagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */; };
 		C3E2E86F215CA38D00C722C3 /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86E215CA38D00C722C3 /* MessagesRouter.swift */; };
@@ -85,7 +85,7 @@
 		C393D626215EC1D500F4D63A /* FlickrResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrResponseDTO.swift; sourceTree = "<group>"; };
 		C393D62B215F506100F4D63A /* Moa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moa.swift; sourceTree = "<group>"; };
 		C3D3173E215D626A000551A2 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
-		C3DC1CD5215F77B5005FD94D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		C3DC1CD5215F77B5005FD94D /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
 		C3E2E868215CA33700C722C3 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
 		C3E2E86E215CA38D00C722C3 /* MessagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 		C3DC1CD4215F77A0005FD94D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C3DC1CD5215F77B5005FD94D /* UserService.swift */,
+				C3DC1CD5215F77B5005FD94D /* PostsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -662,8 +662,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VIPER Demo/Pods-VIPER Demo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -671,8 +669,6 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -692,7 +688,7 @@
 			files = (
 				C30283E6215C1D7700474637 /* PostDTO.swift in Sources */,
 				C3D3173F215D626A000551A2 /* MessageCell.swift in Sources */,
-				C3DC1CD6215F77B5005FD94D /* UserService.swift in Sources */,
+				C3DC1CD6215F77B5005FD94D /* PostsService.swift in Sources */,
 				C393D620215EB56A00F4D63A /* PhotoDTO.swift in Sources */,
 				C3E2E86F215CA38D00C722C3 /* MessagesRouter.swift in Sources */,
 				C30283E0215C12C800474637 /* HTTPRequestor.swift in Sources */,
