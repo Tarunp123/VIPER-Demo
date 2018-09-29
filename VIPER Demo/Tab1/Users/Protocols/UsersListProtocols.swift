@@ -39,6 +39,9 @@ protocol UsersViewProtocol{
     func setupView()
     
     func updateView()
+    
+    func showLoadingIndicator()
+    func removeLoadingIndicator()
 }
 
 
@@ -54,5 +57,6 @@ protocol UsersInteractorInputProtocol {
 
 protocol UsersInteractorOutputProtocol {
     func didFetchUsersDataFromServer(users: [User])
+    func didFailToFetchUsersDataFromServerWithError(error: Error)
 }
 

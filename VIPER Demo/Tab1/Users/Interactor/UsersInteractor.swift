@@ -22,13 +22,13 @@ class UsersInteractor: UsersInteractorInputProtocol {
             
             //Error Checking
             guard error == nil else{
-                print(error.debugDescription)
+                print(error!)
+                self.presenter?.didFailToFetchUsersDataFromServerWithError(error: error!)
                 return
             }
             
             if let data = responseData{
                 do{
- 
                     let posts = try JSONDecoder().decode([PostDTO].self, from: data)
                     //parsing done
                     
@@ -56,9 +56,10 @@ class UsersInteractor: UsersInteractorInputProtocol {
                     
                     self.presenter?.didFetchUsersDataFromServer(users: users)
                     
-                }catch{
+                }catch(let err){
                     //error
-                    print("ERROR = \(error)")
+                    print("ERROR = \(err)")
+                    self.presenter?.didFailToFetchUsersDataFromServerWithError(error: err)
                 }
             }
         }

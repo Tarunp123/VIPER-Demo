@@ -20,6 +20,7 @@ class UsersPresenter: UsersPresenterProtocol {
     func viewDidLoad() {
         self.view?.setupView()
         interactor?.fetchUsersDataFromServer()
+        self.view?.showLoadingIndicator()
     }
     
     func numberOfUsers() -> Int {
@@ -51,6 +52,11 @@ extension UsersPresenter : UsersInteractorOutputProtocol{
     func didFetchUsersDataFromServer(users: [User]) {
         self.users = users
         self.view?.updateView()
+        self.view?.removeLoadingIndicator()
+    }
+    
+    func didFailToFetchUsersDataFromServerWithError(error: Error) {
+        self.view?.removeLoadingIndicator()
     }
 }
 

@@ -15,6 +15,8 @@ class UsersView: UIViewController {
     private var usersTableView : UITableView!
     private let cellId = "UserCell"
     
+    private var activityIndicator : UIActivityIndicatorView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
@@ -48,6 +50,32 @@ extension UsersView : UsersViewProtocol{
             self.usersTableView.reloadData()
         }
     }
+    
+    
+    func showLoadingIndicator() {
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            if let activityIndicator = self.activityIndicator{
+                activityIndicator.startAnimating()
+                return
+            }
+            self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            self.activityIndicator?.hidesWhenStopped = true
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.activityIndicator!)
+            self.activityIndicator?.startAnimating()
+        }
+    }
+    
+    
+    func removeLoadingIndicator() {
+        DispatchQueue.main.async {
+            if let activityIndicator = self.activityIndicator{
+                activityIndicator.stopAnimating()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
+    }
+    
     
     
 }
