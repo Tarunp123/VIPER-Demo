@@ -69,7 +69,12 @@ extension GalleryView : UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: galleryCellId, for: indexPath) as! GalleryCell
-        _ =  self.presenter?.photoAtIndex(index: indexPath.row)
+        cell.imageView.image = nil
+        if let photo = self.presenter?.photoAtIndex(index: indexPath.row){
+            print("\(indexPath.row) = \(photo.thumbnailURLString)")
+            cell.imageView.setImageFromURL(urlString: photo.thumbnailURLString)
+            cell.label.text = "\(indexPath.row)"
+        }
         return cell
     }
     

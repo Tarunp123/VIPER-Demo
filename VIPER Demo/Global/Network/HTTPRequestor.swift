@@ -11,8 +11,7 @@ import Foundation
 
 class HTTPRequestor{
     
-    private var url: URL!
-    
+    var url: URL!
     
     init(urlString: String){
         self.url = URL(string: urlString) ?? URL(string: "")
