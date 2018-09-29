@@ -20,6 +20,7 @@ class GalleryPresenter: GalleryPresenterProtocol {
     func viewDidLoad() {
         self.view?.setupView()
         self.interactor?.fetchNextPageFromServer()
+        self.view?.showLoadingIndicator()
     }
     
     func totalNoOfPhotos() -> Int {
