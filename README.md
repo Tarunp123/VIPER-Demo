@@ -3,7 +3,7 @@ Simple iOS App developed using VIPER design pattern.
 
 
 # Video
-See it in action at -> https://youtu.be/gIHjOx-Lf1w &nbsp
+See it in action at -> https://youtu.be/gIHjOx-Lf1w
 
 
 # Screenshots
@@ -19,8 +19,8 @@ See it in action at -> https://youtu.be/gIHjOx-Lf1w &nbsp
 # Requirements
 1. Xcode - 9.4.1 or Higher
 2. Swift - 4.1 or Higher
-3. Cocoapods
-4. iOS 11.4
+3. iOS 11.4 or Higher
+4. Cocoapods
 
 
 # Dependencies
