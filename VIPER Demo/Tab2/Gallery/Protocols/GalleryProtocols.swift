@@ -19,6 +19,9 @@ protocol GalleryViewProtocol {
     
     func setupView()
     func updateView()
+    func showLoadingIndicator()
+    func removeLoadingIndicator()
+    
 }
 
 protocol GalleryPresenterProtocol {
@@ -31,7 +34,6 @@ protocol GalleryPresenterProtocol {
     func totalNoOfPhotos() -> Int
     func numberOfPhotosToShow() -> Int
     func photoAtIndex(index: Int) -> PhotoDTO?
-    
     
 }
 

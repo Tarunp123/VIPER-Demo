@@ -18,12 +18,10 @@ class GalleryView: UIViewController {
     
     var presenter: GalleryPresenterProtocol?
     
+    private var activityIndicator : UIActivityIndicatorView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Gallery"
-        self.navigationItem.title = "Recent Photos"
-        
         self.presenter?.viewDidLoad()
     }
 
@@ -49,8 +47,7 @@ extension GalleryView : GalleryViewProtocol{
         self.galleryCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.galleryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.galleryCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        self.galleryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        
+        self.galleryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true  
     }
     
     
@@ -59,6 +56,32 @@ extension GalleryView : GalleryViewProtocol{
             self.galleryCollectionView.reloadData()
         }
     }
+    
+    
+    func showLoadingIndicator() {
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            if let activityIndicator = self.activityIndicator{
+                activityIndicator.startAnimating()
+                return
+            }
+            self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            self.activityIndicator?.hidesWhenStopped = true
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.activityIndicator!)
+            self.activityIndicator?.startAnimating()
+        }
+    }
+    
+    
+    func removeLoadingIndicator() {
+        DispatchQueue.main.async {
+            if let activityIndicator = self.activityIndicator{
+                activityIndicator.stopAnimating()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
+    }
+    
     
 }
 

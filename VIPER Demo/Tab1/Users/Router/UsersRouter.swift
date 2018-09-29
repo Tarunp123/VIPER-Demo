@@ -12,6 +12,9 @@ class UsersRouter: UsersRouterProtocol {
     
     static func createUsersModule() -> UIViewController {
         let view = UsersView()
+        view.title = "Users"
+        view.navigationItem.title = "All Users"
+        
         let presenter = UsersPresenter()
         let interactor = UsersInteractor()
         let router = UsersRouter()

@@ -38,6 +38,7 @@ class GalleryPresenter: GalleryPresenterProtocol {
         //fetch next batch if user has scrolled close to end
         if index >= (self.photos.count - 6) && self.photos.count < (self.interactor?.totalNoOfPhotosPresentInServer() ?? 0){
             self.interactor?.fetchNextPageFromServer()
+            self.view?.showLoadingIndicator()
         }
         
         return self.photos[index]
@@ -52,10 +53,12 @@ extension GalleryPresenter : GalleryInteractorOutputProtocol{
     func didFetchNextPageFromServer(photos: [PhotoDTO]) {
         self.photos.append(contentsOf: photos)
         self.view?.updateView()
+        self.view?.removeLoadingIndicator()
     }
     
     func didFailToFetchImagesWithError(error: Error) {
         print(error)
+        self.view?.removeLoadingIndicator()
     }
     
     

@@ -13,6 +13,8 @@ class MessagesRouter: MessagesRouterProtocol {
     static func createMessagesModuleForUser(user: User) -> MessagesView {
         
         let view = MessagesView()
+        view.navigationItem.title = "User \(user.id)"
+        
         let presenter = MessagesPresenter()
         let router = MessagesRouter()
         

@@ -38,7 +38,6 @@ class MessagesView: UIViewController {
 extension MessagesView : MessagesViewProtocol{
     
     func setupView() {
-        self.navigationItem.title = "User \(self.presenter!.user!.id)"
         self.view.backgroundColor = UIColor.white
         
         self.messagesTableView = UITableView(frame: .zero, style: .grouped)

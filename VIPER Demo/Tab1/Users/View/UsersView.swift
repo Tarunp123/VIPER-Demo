@@ -27,8 +27,6 @@ class UsersView: UIViewController {
 extension UsersView : UsersViewProtocol{
     
     func setupView(){
-        self.navigationItem.title = "Users"
-        self.title = "Users"
         self.view.backgroundColor = UIColor.white
         
         self.usersTableView = UITableView(frame: .zero, style: .grouped)

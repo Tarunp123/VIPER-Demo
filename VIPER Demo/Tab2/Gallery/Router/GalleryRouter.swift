@@ -14,6 +14,9 @@ class GalleryRouter: GalleryRouterProtocol {
     static func createGalleryModule() -> UIViewController {
         
         let view = GalleryView()
+        view.title = "Gallery"
+        view.navigationItem.title = "Recent Photos"
+        
         let presenter = GalleryPresenter()
         let router = GalleryRouter()
         let interactor = GalleryInteractor()
