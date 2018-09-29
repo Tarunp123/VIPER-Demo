@@ -19,7 +19,6 @@ class GalleryCell: UICollectionViewCell {
     }
     
     private func setupImageView(){
-        self.imageView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         self.imageView.contentMode = .scaleAspectFit
         self.contentView.addSubview(self.imageView)
         self.imageView.translatesAutoresizingMaskIntoConstraints = false

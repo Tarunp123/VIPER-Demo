@@ -122,6 +122,9 @@ extension GalleryView : UICollectionViewDataSource{
         if let photo = self.presenter?.photoAtIndex(index: indexPath.row){
             //checking if image is selected
             if self.selectedImageIndex == indexPath.row{
+                //change cell bg color same as collectionview bg color to make photo look more immersive
+                cell.imageView.backgroundColor = collectionView.backgroundColor
+                
                 //use high res image for selected image
                 //put low res image as placeholder
                 cell.imageView.image = self.lowResImageOfSelectedPhoto
@@ -130,6 +133,7 @@ extension GalleryView : UICollectionViewDataSource{
                 cell.imageView.moa.url = photo.URLString
             }else{
                 //use low res image for not selected photo
+                cell.imageView.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.5)
                 cell.imageView.moa.url = photo.thumbnailURLString
             }
         }
