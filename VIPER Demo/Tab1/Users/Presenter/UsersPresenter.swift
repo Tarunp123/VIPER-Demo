@@ -43,7 +43,7 @@ class UsersPresenter: UsersPresenterProtocol {
         self.router?.presentMessagesScreen(from: self.view!, forUser: self.users[index])
     }
     
-    
+
 }
 
 

@@ -200,6 +200,13 @@
 			path = External;
 			sourceTree = "<group>";
 		};
+		C393D62D215F5AE400F4D63A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		EEC25332215B6D8900B13A2F = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +326,7 @@
 		EEC25372215B6E4C00B13A2F /* ImageDetail */ = {
 			isa = PBXGroup;
 			children = (
+				C393D62D215F5AE400F4D63A /* New Group */,
 			);
 			path = ImageDetail;
 			sourceTree = "<group>";

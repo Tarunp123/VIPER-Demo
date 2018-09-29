@@ -44,6 +44,10 @@ class GalleryPresenter: GalleryPresenterProtocol {
         return self.photos[index]
     }
     
+    func didSelectPhotoAtIndex(index: Int) {
+        self.view?.expandPhotoAtIndex(index: index)
+    }
+    
     
 }
 

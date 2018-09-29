@@ -14,7 +14,7 @@ class GalleryView: UIViewController {
     private var galleryCollectionView : UICollectionView!
     private var galleryCellId = "GalleryCell"
     private var cellPadding : CGFloat = 10
-    
+    private var lowResImageOfSelectedPhoto : UIImage?
     
     var presenter: GalleryPresenterProtocol?
     
@@ -25,7 +25,7 @@ class GalleryView: UIViewController {
         self.presenter?.viewDidLoad()
     }
 
-    
+    private var selectedImageIndex = -1;
 
 }
 
@@ -82,6 +82,31 @@ extension GalleryView : GalleryViewProtocol{
         }
     }
     
+    func expandPhotoAtIndex(index: Int) {
+        DispatchQueue.main.async {
+            self.galleryCollectionView.performBatchUpdates({
+                if(index == self.selectedImageIndex){
+                    self.selectedImageIndex = -1
+                    self.galleryCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+                }else{
+                    if let lowResImage = (self.galleryCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? GalleryCell)?.imageView.image{
+                        self.lowResImageOfSelectedPhoto = lowResImage
+                    }
+                    if self.selectedImageIndex == -1{
+                        self.galleryCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+                    }else{
+                        self.galleryCollectionView.reloadItems(at: [IndexPath(row: index, section: 0), IndexPath(row: self.selectedImageIndex, section: 0)])
+                    }
+                    self.selectedImageIndex = index
+                }
+                
+            }) { (completedSuccessfully) in
+                self.galleryCollectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .top, animated: true)
+            }
+        }
+    }
+    
+    
     
 }
 
@@ -95,7 +120,18 @@ extension GalleryView : UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: galleryCellId, for: indexPath) as! GalleryCell
         cell.imageView.image = nil
         if let photo = self.presenter?.photoAtIndex(index: indexPath.row){
-            cell.imageView.moa.url = photo.thumbnailURLString
+            //checking if image is selected
+            if self.selectedImageIndex == indexPath.row{
+                //use high res image for selected image
+                //put low res image as placeholder
+                cell.imageView.image = self.lowResImageOfSelectedPhoto
+
+                //then load the high res image
+                cell.imageView.moa.url = photo.URLString
+            }else{
+                //use low res image for not selected photo
+                cell.imageView.moa.url = photo.thumbnailURLString
+            }
         }
         return cell
     }
@@ -104,14 +140,30 @@ extension GalleryView : UICollectionViewDataSource{
 
 
 extension GalleryView : UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.presenter?.didSelectPhotoAtIndex(index: indexPath.row)
+    }
+    
+    
 
 }
+
+
 
 extension GalleryView : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: cellPadding, left: cellPadding, bottom: cellPadding, right: cellPadding)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //FullSreen for selected photos
+        if(indexPath.row == self.selectedImageIndex){
+            var height = self.galleryCollectionView.frame.height - cellPadding*2
+            height -= (self.navigationController?.navigationBar.frame.height ?? 0)
+            height -= (self.tabBarController?.tabBar.frame.size.height ?? 0)
+            return CGSize(width: self.galleryCollectionView.frame.width - cellPadding*2, height: height)
+        }
+        
+        //Thumbnail for other photos
         let width = (self.galleryCollectionView.frame.width-cellPadding*3)/2
         return CGSize(width: width, height: width)
     }
