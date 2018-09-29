@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [UsersRouter.createUsersModule(), GalleryRouter.createGalleryModule()]
+        tabBarController.viewControllers = [UsersRouter.createUsersModule(), GalleryRouter.createGalleryModule(), LibrariesRouter.createLibrariesModule()]
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
