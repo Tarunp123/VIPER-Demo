@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Moya
 
 class GalleryInteractor: GalleryInteractorInputProtocol {
  
@@ -15,10 +16,10 @@ class GalleryInteractor: GalleryInteractorInputProtocol {
     private var totalNoOfPhotosInServer = 0
     private var totalNoOfPagesInServer = -1
     private var noOfPagesFetched = 0
-    private var recordsPerPage = 20
+    private var photosPerPage = 20
     private var flickrAPIKey = "e449b259146e14b0d55e770fb3577436"
     
-    lazy private var flickerApiURI = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=\(self.flickrAPIKey)&format=json&nojsoncallback=1&per_page=\(self.recordsPerPage)&page="
+//    lazy private var flickerApiURI = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=\(self.flickrAPIKey)&format=json&nojsoncallback=1&per_page=\(self.photosPerPage)&page="
     
     
     private var isFetchingData = false
@@ -30,48 +31,47 @@ class GalleryInteractor: GalleryInteractorInputProtocol {
         
         if totalNoOfPagesInServer == -1{    //initial fetch
             self.noOfPagesFetched = 0
-            self.fetchImagesFromURI(uri: self.flickerApiURI+"\(self.noOfPagesFetched + 1)")
+//            self.fetchImagesFromURI(uri: self.flickerApiURI+"\(self.noOfPagesFetched + 1)")
         }else{      //subsequent fetches after initial fetch
             guard noOfPagesFetched < totalNoOfPagesInServer else{
                 return
             }
-            self.fetchImagesFromURI(uri: self.flickerApiURI+"\(self.noOfPagesFetched + 1)")
+//            self.fetchImagesFromURI(uri: self.flickerApiURI+"\(self.noOfPagesFetched + 1)")
         }
-        
+        self.fetchImagesForPageNo(pageNo: self.noOfPagesFetched + 1, apiKey: self.flickrAPIKey, photosPerPage: self.photosPerPage)
     }
     
     func totalNoOfPhotosPresentInServer() -> Int {
         return self.totalNoOfPhotosInServer
     }
     
+   private var photoProvider = MoyaProvider<GalleryService>()
     
-    private func fetchImagesFromURI(uri: String){
+    private func fetchImagesForPageNo(pageNo: Int, apiKey: String, photosPerPage: Int){
         self.isFetchingData = true
-        
-        let requester = HTTPRequestor(urlString: uri)
-        requester.makeRequest { (data, error) in
+
+        photoProvider.request(.getPhotos(apiKey: apiKey, photosPerPage: photosPerPage, pageNo: pageNo)) { (result) in
             
             self.isFetchingData = false
             
-            guard error == nil else{
-                self.presenter?.didFailToFetchImagesWithError(error: error!)
-                return
-            }
-            
-            if let photosData = data{
+            switch result{
+            case .failure(let error):
+                self.presenter?.didFailToFetchImagesWithError(error: error)
+                
+            case .success(let response):
                 do{
-                    let flickrResponse = try JSONDecoder().decode(FlickrResponseDTO.self, from: photosData)
+                    let flickrResponse = try JSONDecoder().decode(FlickrResponseDTO.self, from: response.data)
                     self.totalNoOfPhotosInServer = flickrResponse.photosWithMetadata.totalNoOfPhotos
                     self.totalNoOfPagesInServer = flickrResponse.photosWithMetadata.totalNoOfPages
                     self.noOfPagesFetched += 1
                     self.presenter?.didFetchNextPageFromServer(photos: flickrResponse.photosWithMetadata.photos)
-                    
+
                 }catch(let err){
                     self.presenter?.didFailToFetchImagesWithError(error: err)
                 }
             }
- 
         }
+        
         
     }
     

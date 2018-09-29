@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		688B6FDD85EDBF0889A640EF /* Pods_VIPER_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A360D55114DD59A24D1A8A45 /* Pods_VIPER_DemoTests.framework */; };
 		919A045B1831BAAF33B5E158 /* Pods_VIPER_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFB2D7E601DF3BE9FB30899 /* Pods_VIPER_DemoUITests.framework */; };
-		C30283E0215C12C800474637 /* HTTPRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283DF215C12C800474637 /* HTTPRequestor.swift */; };
 		C30283E2215C14F700474637 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E1215C14F700474637 /* UtilityExtensions.swift */; };
 		C30283E4215C1C5800474637 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E3215C1C5800474637 /* Message.swift */; };
 		C30283E6215C1D7700474637 /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E5215C1D7700474637 /* PostDTO.swift */; };
@@ -29,6 +28,7 @@
 		C3E2E86B215CA36C00C722C3 /* MessagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */; };
 		C3E2E86F215CA38D00C722C3 /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E86E215CA38D00C722C3 /* MessagesRouter.swift */; };
 		C3E2E871215CA3A100C722C3 /* MessagesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2E870215CA3A100C722C3 /* MessagesProtocols.swift */; };
+		C3F2959E215F92A800909132 /* GalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2959D215F92A800909132 /* GalleryService.swift */; };
 		DA392D13F505EB8F73254CA6 /* Pods_VIPER_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361E4896D05B8D66AA8B37FD /* Pods_VIPER_Demo.framework */; };
 		EEC2533F215B6D8A00B13A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC2533E215B6D8A00B13A2F /* AppDelegate.swift */; };
 		EEC25344215B6D8A00B13A2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEC25342215B6D8A00B13A2F /* Main.storyboard */; };
@@ -70,7 +70,6 @@
 		97E453DB23258B210E7745CB /* Pods-VIPER Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VIPER Demo/Pods-VIPER Demo.release.xcconfig"; sourceTree = "<group>"; };
 		A360D55114DD59A24D1A8A45 /* Pods_VIPER_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIPER_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D7EE7CCA2050169798416C /* Pods-VIPER Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VIPER Demo/Pods-VIPER Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		C30283DF215C12C800474637 /* HTTPRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestor.swift; sourceTree = "<group>"; };
 		C30283E1215C14F700474637 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		C30283E3215C1C5800474637 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C30283E5215C1D7700474637 /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		C3E2E86A215CA36C00C722C3 /* MessagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
 		C3E2E86E215CA38D00C722C3 /* MessagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
 		C3E2E870215CA3A100C722C3 /* MessagesProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesProtocols.swift; sourceTree = "<group>"; };
+		C3F2959D215F92A800909132 /* GalleryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryService.swift; sourceTree = "<group>"; };
 		C6557464BD23AD9BE5A9E299 /* Pods-VIPER DemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER DemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VIPER DemoUITests/Pods-VIPER DemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EEC2533B215B6D8A00B13A2F /* VIPER Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VIPER Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC2533E215B6D8A00B13A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,19 +167,10 @@
 			children = (
 				C3DC1CD4215F77A0005FD94D /* Services */,
 				C393D62A215F504C00F4D63A /* External */,
-				C30283DE215C126E00474637 /* Network */,
 				EEC2533E215B6D8A00B13A2F /* AppDelegate.swift */,
 				C30283E1215C14F700474637 /* UtilityExtensions.swift */,
 			);
 			path = Global;
-			sourceTree = "<group>";
-		};
-		C30283DE215C126E00474637 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				C30283DF215C12C800474637 /* HTTPRequestor.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		C393D610215EA83000F4D63A /* Protocols */ = {
@@ -241,17 +232,11 @@
 			path = External;
 			sourceTree = "<group>";
 		};
-		C393D62D215F5AE400F4D63A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		C3DC1CD4215F77A0005FD94D /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				C3DC1CD5215F77B5005FD94D /* PostsService.swift */,
+				C3F2959D215F92A800909132 /* GalleryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -324,7 +309,6 @@
 		EEC2536D215B6DD700B13A2F /* Tab2 */ = {
 			isa = PBXGroup;
 			children = (
-				EEC25372215B6E4C00B13A2F /* ImageDetail */,
 				EEC25371215B6E3100B13A2F /* Gallery */,
 			);
 			path = Tab2;
@@ -372,14 +356,6 @@
 				C393D610215EA83000F4D63A /* Protocols */,
 			);
 			path = Gallery;
-			sourceTree = "<group>";
-		};
-		EEC25372215B6E4C00B13A2F /* ImageDetail */ = {
-			isa = PBXGroup;
-			children = (
-				C393D62D215F5AE400F4D63A /* New Group */,
-			);
-			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		EEC25373215B6E8A00B13A2F /* Libraries */ = {
@@ -691,7 +667,6 @@
 				C3DC1CD6215F77B5005FD94D /* PostsService.swift in Sources */,
 				C393D620215EB56A00F4D63A /* PhotoDTO.swift in Sources */,
 				C3E2E86F215CA38D00C722C3 /* MessagesRouter.swift in Sources */,
-				C30283E0215C12C800474637 /* HTTPRequestor.swift in Sources */,
 				EEC2538A215C0B9C00B13A2F /* UsersInteractor.swift in Sources */,
 				C393D614215EA86A00F4D63A /* GalleryProtocols.swift in Sources */,
 				C393D625215EC02B00F4D63A /* PhotosWithMetadataDTO.swift in Sources */,
@@ -710,6 +685,7 @@
 				C30283E4215C1C5800474637 /* Message.swift in Sources */,
 				C393D623215EB74900F4D63A /* GalleryInteractor.swift in Sources */,
 				C393D618215EA87E00F4D63A /* GalleryCell.swift in Sources */,
+				C3F2959E215F92A800909132 /* GalleryService.swift in Sources */,
 				EEC2533F215B6D8A00B13A2F /* AppDelegate.swift in Sources */,
 				EEC25382215B762000B13A2F /* UsersRouter.swift in Sources */,
 				C3E2E871215CA3A100C722C3 /* MessagesProtocols.swift in Sources */,
