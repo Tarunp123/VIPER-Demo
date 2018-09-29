@@ -54,6 +54,19 @@ extension MessagesView : MessagesViewProtocol{
         
     }
 
+    func expandCellAtIndex(index: Int) {
+        DispatchQueue.main.async {
+            self.messagesTableView.beginUpdates()
+            if index == self.selectedMessageIndex{
+                self.selectedMessageIndex = -1
+                self.messagesTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+            }else{
+                self.messagesTableView.reloadRows(at: [IndexPath(row: self.selectedMessageIndex, section: 0), IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+                self.selectedMessageIndex = index
+            }
+            self.messagesTableView.endUpdates()
+        }
+    }
 
 }
 
@@ -118,14 +131,6 @@ extension MessagesView : UITableViewDataSource{
 
 extension MessagesView : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.beginUpdates()
-        if indexPath.row == selectedMessageIndex{
-            selectedMessageIndex = -1
-            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        }else{
-            tableView.reloadRows(at: [IndexPath(row: selectedMessageIndex, section: 0), indexPath], with: UITableViewRowAnimation.automatic)
-            selectedMessageIndex = indexPath.row
-        }
-        tableView.endUpdates()
+        self.presenter?.didSelectMessageAtIndex(index: indexPath.row)
     }
 }

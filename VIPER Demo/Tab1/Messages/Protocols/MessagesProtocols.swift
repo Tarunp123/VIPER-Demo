@@ -19,6 +19,7 @@ protocol MessagesViewProtocol {
     var presenter : MessagesPresenterProtocol? {get set}
     
     func setupView()
+    func expandCellAtIndex(index: Int)
 }
 
 
@@ -32,4 +33,6 @@ protocol MessagesPresenterProtocol {
     func numberOfMessages() -> Int
     
     func messageAtIndex(index: Int) -> Message?
+    
+    func didSelectMessageAtIndex(index: Int)
 }

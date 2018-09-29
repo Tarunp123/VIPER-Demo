@@ -32,5 +32,7 @@ class MessagesPresenter: MessagesPresenterProtocol {
         return self.user!.messages[index]
     }
     
-    
+    func didSelectMessageAtIndex(index: Int) {
+        self.view?.expandCellAtIndex(index: index)
+    }
 }
