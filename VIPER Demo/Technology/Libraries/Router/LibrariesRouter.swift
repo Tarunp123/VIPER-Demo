@@ -16,6 +16,7 @@ class LibrariesRouter: LibrariesRouterProtocol {
         let view = LibrariesView()
         view.title = "Technology"
         view.navigationItem.title = "Libraries & Tools"
+        view.tabBarItem.image = #imageLiteral(resourceName: "TechnologyIcon")
         let presenter = LibrariesPresenter()
         let router = LibrariesRouter()
         

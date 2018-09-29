@@ -307,9 +307,9 @@
 			isa = PBXGroup;
 			children = (
 				C30283DD215C125500474637 /* Global */,
-				EEC2536E215B6DDF00B13A2F /* Tab3 */,
-				EEC2536D215B6DD700B13A2F /* Tab2 */,
-				EEC2536C215B6DB300B13A2F /* Tab1 */,
+				EEC2536E215B6DDF00B13A2F /* Technology */,
+				EEC2536D215B6DD700B13A2F /* Gallery */,
+				EEC2536C215B6DB300B13A2F /* Users */,
 				EEC25342215B6D8A00B13A2F /* Main.storyboard */,
 				EEC25345215B6D8C00B13A2F /* Assets.xcassets */,
 				EEC25347215B6D8C00B13A2F /* LaunchScreen.storyboard */,
@@ -336,30 +336,30 @@
 			path = "VIPER DemoUITests";
 			sourceTree = "<group>";
 		};
-		EEC2536C215B6DB300B13A2F /* Tab1 */ = {
+		EEC2536C215B6DB300B13A2F /* Users */ = {
 			isa = PBXGroup;
 			children = (
 				EEC25377215B6EFA00B13A2F /* Entities */,
 				EEC25370215B6E1B00B13A2F /* Messages */,
 				EEC2536F215B6DE600B13A2F /* Users */,
 			);
-			path = Tab1;
+			path = Users;
 			sourceTree = "<group>";
 		};
-		EEC2536D215B6DD700B13A2F /* Tab2 */ = {
+		EEC2536D215B6DD700B13A2F /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
 				EEC25371215B6E3100B13A2F /* Gallery */,
 			);
-			path = Tab2;
+			path = Gallery;
 			sourceTree = "<group>";
 		};
-		EEC2536E215B6DDF00B13A2F /* Tab3 */ = {
+		EEC2536E215B6DDF00B13A2F /* Technology */ = {
 			isa = PBXGroup;
 			children = (
 				EEC25373215B6E8A00B13A2F /* Libraries */,
 			);
-			path = Tab3;
+			path = Technology;
 			sourceTree = "<group>";
 		};
 		EEC2536F215B6DE600B13A2F /* Users */ = {

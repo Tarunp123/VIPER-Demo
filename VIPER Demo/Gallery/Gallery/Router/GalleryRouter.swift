@@ -16,6 +16,7 @@ class GalleryRouter: GalleryRouterProtocol {
         let view = GalleryView()
         view.title = "Gallery"
         view.navigationItem.title = "Recent Photos"
+        view.tabBarItem.image = #imageLiteral(resourceName: "GalleryIcon")
         
         let presenter = GalleryPresenter()
         let router = GalleryRouter()

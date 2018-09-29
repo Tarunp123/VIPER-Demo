@@ -14,7 +14,7 @@ class UsersRouter: UsersRouterProtocol {
         let view = UsersView()
         view.title = "Users"
         view.navigationItem.title = "All Users"
-        
+        view.tabBarItem.image = #imageLiteral(resourceName: "UserIcon")
         let presenter = UsersPresenter()
         let interactor = UsersInteractor()
         let router = UsersRouter()
