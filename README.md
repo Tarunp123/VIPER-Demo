@@ -26,3 +26,4 @@ See it in action at -> https://youtu.be/gIHjOx-Lf1w
 # Dependencies
 1. Moa
 2. Moya
+3. Whisper
