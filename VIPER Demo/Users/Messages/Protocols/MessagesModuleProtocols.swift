@@ -32,7 +32,7 @@ protocol MessagesPresenterProtocol {
     
     func numberOfMessages() -> Int
     
-    func messageAtIndex(index: Int) -> Message?
+    func messageAtIndex(index: Int) -> UserMessage?
     
     func didSelectMessageAtIndex(index: Int)
 }

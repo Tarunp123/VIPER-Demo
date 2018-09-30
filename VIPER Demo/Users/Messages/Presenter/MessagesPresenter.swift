@@ -24,7 +24,7 @@ class MessagesPresenter: MessagesPresenterProtocol {
         return self.user?.messages.count ?? 0
     }
     
-    func messageAtIndex(index: Int) -> Message? {
+    func messageAtIndex(index: Int) -> UserMessage? {
         guard index < (self.user?.messages.count ?? 0) else{
             return nil
         }

@@ -42,6 +42,8 @@ protocol UsersViewProtocol{
     
     func showLoadingIndicator()
     func removeLoadingIndicator()
+    
+    func showError(messageString: String)
 }
 
 

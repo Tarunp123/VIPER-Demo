@@ -18,9 +18,7 @@ class GalleryInteractor: GalleryInteractorInputProtocol {
     private var noOfPagesFetched = 0
     private var photosPerPage = 20
     private var flickrAPIKey = "e449b259146e14b0d55e770fb3577436"
-    
-//    lazy private var flickerApiURI = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=\(self.flickrAPIKey)&format=json&nojsoncallback=1&per_page=\(self.photosPerPage)&page="
-    
+
     
     private var isFetchingData = false
     
@@ -31,12 +29,10 @@ class GalleryInteractor: GalleryInteractorInputProtocol {
         
         if totalNoOfPagesInServer == -1{    //initial fetch
             self.noOfPagesFetched = 0
-//            self.fetchImagesFromURI(uri: self.flickerApiURI+"\(self.noOfPagesFetched + 1)")
         }else{      //subsequent fetches after initial fetch
             guard noOfPagesFetched < totalNoOfPagesInServer else{
                 return
             }
-//            self.fetchImagesFromURI(uri: self.flickerApiURI+"\(self.noOfPagesFetched + 1)")
         }
         self.fetchImagesForPageNo(pageNo: self.noOfPagesFetched + 1, apiKey: self.flickrAPIKey, photosPerPage: self.photosPerPage)
     }

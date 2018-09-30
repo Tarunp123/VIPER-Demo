@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Whisper
 
 class UsersView: UIViewController {
 
@@ -76,6 +77,12 @@ extension UsersView : UsersViewProtocol{
         }
     }
     
+    func showError(messageString: String) {
+        if let navController = self.navigationController{
+            let message = Message(title: messageString, textColor: .white, backgroundColor: .red, images: nil)
+            Whisper.show(whisper: message, to: navController)
+        }
+    }
     
     
 }

@@ -11,7 +11,7 @@ import Foundation
 
 class User{
     var id : Int
-    var messages : [Message] = []
+    var messages : [UserMessage] = []
     
     init(id: Int) {
         self.id = id

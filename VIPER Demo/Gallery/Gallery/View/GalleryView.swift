@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Whisper
 
 class GalleryView: UIViewController {
 
@@ -106,7 +106,12 @@ extension GalleryView : GalleryViewProtocol{
         }
     }
     
-    
+    func showError(messageString: String) {
+        if let navController = self.navigationController{
+            let message = Message(title: messageString, textColor: .white, backgroundColor: .red, images: nil)
+            Whisper.show(whisper: message, to: navController)
+        }
+    }
     
 }
 

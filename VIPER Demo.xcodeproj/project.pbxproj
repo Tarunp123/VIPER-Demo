@@ -10,7 +10,7 @@
 		688B6FDD85EDBF0889A640EF /* Pods_VIPER_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A360D55114DD59A24D1A8A45 /* Pods_VIPER_DemoTests.framework */; };
 		919A045B1831BAAF33B5E158 /* Pods_VIPER_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFB2D7E601DF3BE9FB30899 /* Pods_VIPER_DemoUITests.framework */; };
 		C30283E2215C14F700474637 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E1215C14F700474637 /* UtilityExtensions.swift */; };
-		C30283E4215C1C5800474637 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E3215C1C5800474637 /* Message.swift */; };
+		C30283E4215C1C5800474637 /* UserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E3215C1C5800474637 /* UserMessage.swift */; };
 		C30283E6215C1D7700474637 /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30283E5215C1D7700474637 /* PostDTO.swift */; };
 		C393D614215EA86A00F4D63A /* GalleryModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D613215EA86A00F4D63A /* GalleryModuleProtocols.swift */; };
 		C393D617215EA87E00F4D63A /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393D615215EA87E00F4D63A /* GalleryView.swift */; };
@@ -75,7 +75,7 @@
 		A360D55114DD59A24D1A8A45 /* Pods_VIPER_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIPER_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D7EE7CCA2050169798416C /* Pods-VIPER Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VIPER Demo/Pods-VIPER Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		C30283E1215C14F700474637 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
-		C30283E3215C1C5800474637 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C30283E3215C1C5800474637 /* UserMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessage.swift; sourceTree = "<group>"; };
 		C30283E5215C1D7700474637 /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
 		C393D613215EA86A00F4D63A /* GalleryModuleProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryModuleProtocols.swift; sourceTree = "<group>"; };
 		C393D615215EA87E00F4D63A /* GalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
@@ -437,7 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				EEC25387215BDC6F00B13A2F /* User.swift */,
-				C30283E3215C1C5800474637 /* Message.swift */,
+				C30283E3215C1C5800474637 /* UserMessage.swift */,
 				C30283E5215C1D7700474637 /* PostDTO.swift */,
 			);
 			path = Entities;
@@ -687,12 +687,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -728,7 +730,7 @@
 				EEC25380215B719400B13A2F /* UsersModuleProtocols.swift in Sources */,
 				C3F295AD215FEAAC00909132 /* LibrariesRouter.swift in Sources */,
 				EEC25388215BDC6F00B13A2F /* User.swift in Sources */,
-				C30283E4215C1C5800474637 /* Message.swift in Sources */,
+				C30283E4215C1C5800474637 /* UserMessage.swift in Sources */,
 				C393D623215EB74900F4D63A /* GalleryInteractor.swift in Sources */,
 				C393D618215EA87E00F4D63A /* GalleryCell.swift in Sources */,
 				C3F2959E215F92A800909132 /* GalleryService.swift in Sources */,

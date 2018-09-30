@@ -7,6 +7,7 @@ target 'VIPER Demo' do
 
   # Pods for VIPER Demo
   pod 'Moya', '~> 11.0.2'
+  pod 'Whisper'
 
   target 'VIPER DemoTests' do
     inherit! :search_paths

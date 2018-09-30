@@ -23,6 +23,8 @@ protocol GalleryViewProtocol {
     func removeLoadingIndicator()
     
     func expandPhotoAtIndex(index: Int)
+    
+    func showError(messageString: String)
 }
 
 protocol GalleryPresenterProtocol {

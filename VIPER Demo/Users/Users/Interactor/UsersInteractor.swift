@@ -41,7 +41,7 @@ class UsersInteractor: UsersInteractorInputProtocol {
                                 usersMap[posts[index].userId!] = User(id: posts[index].userId!)
                             }
                             //append new message
-                            usersMap[posts[index].userId!]!.messages.append(Message(title: posts[index].title!, body: posts[index].body!))
+                            usersMap[posts[index].userId!]!.messages.append(UserMessage(title: posts[index].title!, body: posts[index].body!))
                         }
                         
                         //Sort Users based on userId

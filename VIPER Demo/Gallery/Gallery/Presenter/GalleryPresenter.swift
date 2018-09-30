@@ -62,7 +62,7 @@ extension GalleryPresenter : GalleryInteractorOutputProtocol{
     }
     
     func didFailToFetchImagesWithError(error: Error) {
-        print(error)
+        self.view?.showError(messageString: error.localizedDescription)
         self.view?.removeLoadingIndicator()
     }
     

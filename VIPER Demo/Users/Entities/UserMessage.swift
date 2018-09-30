@@ -1,5 +1,5 @@
 //
-//  Message.swift
+//  UserMessage.swift
 //  VIPER Demo
 //
 //  Created by Tarun Prajapati on 27/09/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Message {
+class UserMessage {
     
     var title : String
     var body : String

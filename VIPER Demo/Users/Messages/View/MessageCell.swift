@@ -20,7 +20,7 @@ class MessageCell: UITableViewCell {
     private var titleLabel : UILabel?
     private var bodyLabel : UILabel?
     
-    func setupCellForMessage(message: Message, inExpandedMode expandedMode: Bool) {
+    func setupCellForMessage(message: UserMessage, inExpandedMode expandedMode: Bool) {
         self.titleLabel?.removeFromSuperview()
         
         self.titleLabel = UILabel()

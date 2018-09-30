@@ -56,6 +56,7 @@ extension UsersPresenter : UsersInteractorOutputProtocol{
     }
     
     func didFailToFetchUsersDataFromServerWithError(error: Error) {
+        self.view?.showError(messageString: error.localizedDescription)
         self.view?.removeLoadingIndicator()
     }
 }
